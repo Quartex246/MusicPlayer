@@ -26,7 +26,7 @@ The Music player should be able to:
 - Create a class **"Music"**, contains song name, artists, album, length, file directory etc.
 - Create a **"Playlist"** class, user can create, delete, edit playlists and add music in the playlist.
 - Achieve **play controls**, including Play, Pause, Stop, Previous song, Next song etc.
-- Provide **music genre**, 
+- Provide **music genre**, support to look up music in various ways.
 - Provide **"History"** function, user can check the recent played playlist.
 
 
