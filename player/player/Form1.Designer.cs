@@ -28,86 +28,137 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Title = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.PlayButton = new System.Windows.Forms.Button();
+            this.NextButton = new System.Windows.Forms.Button();
+            this.PrevButton = new System.Windows.Forms.Button();
+            this.SongName = new System.Windows.Forms.Label();
+            this.Artist = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.PauseButton = new System.Windows.Forms.Button();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
-            // Title
+            // PlayButton
             // 
-            this.Title.AutoSize = true;
-            this.Title.Location = new System.Drawing.Point(6, 3);
-            this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(104, 20);
-            this.Title.TabIndex = 0;
-            this.Title.Text = "Music Player";
-            this.Title.Click += new System.EventHandler(this.label1_Click);
+            this.PlayButton.Location = new System.Drawing.Point(320, 358);
+            this.PlayButton.Name = "PlayButton";
+            this.PlayButton.Size = new System.Drawing.Size(75, 34);
+            this.PlayButton.TabIndex = 1;
+            this.PlayButton.Text = "Play";
+            this.PlayButton.UseVisualStyleBackColor = true;
+            this.PlayButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button1
+            // NextButton
             // 
-            this.button1.Location = new System.Drawing.Point(271, 298);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 34);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Play";
-            this.button1.UseVisualStyleBackColor = true;
+            this.NextButton.Location = new System.Drawing.Point(482, 358);
+            this.NextButton.Name = "NextButton";
+            this.NextButton.Size = new System.Drawing.Size(75, 34);
+            this.NextButton.TabIndex = 2;
+            this.NextButton.Text = "Next";
+            this.NextButton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // PrevButton
             // 
-            this.button2.Location = new System.Drawing.Point(352, 298);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 34);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Next";
-            this.button2.UseVisualStyleBackColor = true;
+            this.PrevButton.Location = new System.Drawing.Point(239, 358);
+            this.PrevButton.Name = "PrevButton";
+            this.PrevButton.Size = new System.Drawing.Size(75, 34);
+            this.PrevButton.TabIndex = 3;
+            this.PrevButton.Text = "Prev";
+            this.PrevButton.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // SongName
             // 
-            this.button3.Location = new System.Drawing.Point(190, 298);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 34);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Prev";
-            this.button3.UseVisualStyleBackColor = true;
+            this.SongName.AutoSize = true;
+            this.SongName.Font = new System.Drawing.Font("MiSans Medium", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SongName.Location = new System.Drawing.Point(7, 154);
+            this.SongName.Name = "SongName";
+            this.SongName.Size = new System.Drawing.Size(274, 64);
+            this.SongName.TabIndex = 4;
+            this.SongName.Text = "SongName";
+            this.SongName.Click += new System.EventHandler(this.label1_Click_1);
             // 
-            // pictureBox1
+            // Artist
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(10, 26);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(196, 190);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.Artist.AutoSize = true;
+            this.Artist.Font = new System.Drawing.Font("MiSans", 18F);
+            this.Artist.Location = new System.Drawing.Point(12, 122);
+            this.Artist.Name = "Artist";
+            this.Artist.Size = new System.Drawing.Size(74, 32);
+            this.Artist.TabIndex = 5;
+            this.Artist.Text = "Artist";
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(451, 55);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(313, 230);
+            this.panel1.TabIndex = 6;
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(12, 269);
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(104, 45);
+            this.trackBar1.TabIndex = 7;
+            // 
+            // PauseButton
+            // 
+            this.PauseButton.Location = new System.Drawing.Point(401, 358);
+            this.PauseButton.Name = "PauseButton";
+            this.PauseButton.Size = new System.Drawing.Size(75, 34);
+            this.PauseButton.TabIndex = 8;
+            this.PauseButton.Text = "Pause";
+            this.PauseButton.UseVisualStyleBackColor = true;
+            this.PauseButton.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(18, 307);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(746, 45);
+            this.axWindowsMediaPlayer1.TabIndex = 9;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 344);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.Title);
+            this.ClientSize = new System.Drawing.Size(776, 421);
+            this.Controls.Add(this.axWindowsMediaPlayer1);
+            this.Controls.Add(this.PauseButton);
+            this.Controls.Add(this.trackBar1);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.Artist);
+            this.Controls.Add(this.SongName);
+            this.Controls.Add(this.PrevButton);
+            this.Controls.Add(this.NextButton);
+            this.Controls.Add(this.PlayButton);
             this.Font = new System.Drawing.Font("Times New Roman", 9F);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label Title;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button PlayButton;
+        private System.Windows.Forms.Button NextButton;
+        private System.Windows.Forms.Button PrevButton;
+        private System.Windows.Forms.Label SongName;
+        private System.Windows.Forms.Label Artist;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Button PauseButton;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
     }
 }
 
