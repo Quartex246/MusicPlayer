@@ -36,60 +36,64 @@
             this.Artist = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.PauseButton = new System.Windows.Forms.Button();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SortArtistBox = new System.Windows.Forms.CheckBox();
             this.SortAlbumBox = new System.Windows.Forms.CheckBox();
             this.SortGenreBox = new System.Windows.Forms.CheckBox();
             this.TextSortBy = new System.Windows.Forms.Label();
+            this.listViewPlaylist = new System.Windows.Forms.ListView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.PLIHistoryButton = new System.Windows.Forms.Button();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.SortLengthBox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
             // PlayButton
             // 
-            this.PlayButton.Location = new System.Drawing.Point(312, 358);
+            this.PlayButton.Location = new System.Drawing.Point(310, 375);
             this.PlayButton.Name = "PlayButton";
             this.PlayButton.Size = new System.Drawing.Size(75, 34);
             this.PlayButton.TabIndex = 1;
             this.PlayButton.Text = "Play";
             this.PlayButton.UseVisualStyleBackColor = true;
-            this.PlayButton.Click += new System.EventHandler(this.button1_Click);
+            this.PlayButton.Click += new System.EventHandler(this.PlayButton_Click);
             // 
             // NextButton
             // 
-            this.NextButton.Location = new System.Drawing.Point(474, 358);
+            this.NextButton.Location = new System.Drawing.Point(472, 375);
             this.NextButton.Name = "NextButton";
             this.NextButton.Size = new System.Drawing.Size(75, 34);
             this.NextButton.TabIndex = 2;
             this.NextButton.Text = "Next";
             this.NextButton.UseVisualStyleBackColor = true;
+            this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
             // 
             // PrevButton
             // 
-            this.PrevButton.Location = new System.Drawing.Point(231, 358);
+            this.PrevButton.Location = new System.Drawing.Point(229, 375);
             this.PrevButton.Name = "PrevButton";
             this.PrevButton.Size = new System.Drawing.Size(75, 34);
             this.PrevButton.TabIndex = 3;
             this.PrevButton.Text = "Prev";
             this.PrevButton.UseVisualStyleBackColor = true;
+            this.PrevButton.Click += new System.EventHandler(this.PrevButton_Click);
             // 
             // SongName
             // 
             this.SongName.AutoSize = true;
             this.SongName.Font = new System.Drawing.Font("MiSans Medium", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SongName.Location = new System.Drawing.Point(7, 154);
+            this.SongName.Location = new System.Drawing.Point(7, 134);
             this.SongName.Name = "SongName";
             this.SongName.Size = new System.Drawing.Size(274, 64);
             this.SongName.TabIndex = 4;
             this.SongName.Text = "SongName";
-            this.SongName.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // Artist
             // 
             this.Artist.AutoSize = true;
             this.Artist.Font = new System.Drawing.Font("MiSans", 18F);
-            this.Artist.Location = new System.Drawing.Point(12, 122);
+            this.Artist.Location = new System.Drawing.Point(12, 102);
             this.Artist.Name = "Artist";
             this.Artist.Size = new System.Drawing.Size(74, 32);
             this.Artist.TabIndex = 5;
@@ -104,47 +108,29 @@
             // 
             // PauseButton
             // 
-            this.PauseButton.Location = new System.Drawing.Point(393, 358);
+            this.PauseButton.Location = new System.Drawing.Point(391, 375);
             this.PauseButton.Name = "PauseButton";
             this.PauseButton.Size = new System.Drawing.Size(75, 34);
             this.PauseButton.TabIndex = 8;
             this.PauseButton.Text = "Pause";
             this.PauseButton.UseVisualStyleBackColor = true;
-            this.PauseButton.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // axWindowsMediaPlayer1
-            // 
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(12, 307);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(752, 45);
-            this.axWindowsMediaPlayer1.TabIndex = 9;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(401, 62);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(363, 214);
-            this.listBox1.TabIndex = 10;
+            this.PauseButton.Click += new System.EventHandler(this.PauseButton_Click);
             // 
             // SortArtistBox
             // 
             this.SortArtistBox.AutoSize = true;
-            this.SortArtistBox.Location = new System.Drawing.Point(502, 37);
+            this.SortArtistBox.Location = new System.Drawing.Point(472, 21);
             this.SortArtistBox.Name = "SortArtistBox";
             this.SortArtistBox.Size = new System.Drawing.Size(55, 19);
             this.SortArtistBox.TabIndex = 11;
             this.SortArtistBox.Text = "Artist";
             this.SortArtistBox.UseVisualStyleBackColor = true;
-            this.SortArtistBox.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.SortArtistBox.CheckedChanged += new System.EventHandler(this.SortArtistBox_CheckedChanged);
             // 
             // SortAlbumBox
             // 
             this.SortAlbumBox.AutoSize = true;
-            this.SortAlbumBox.Location = new System.Drawing.Point(599, 37);
+            this.SortAlbumBox.Location = new System.Drawing.Point(547, 21);
             this.SortAlbumBox.Name = "SortAlbumBox";
             this.SortAlbumBox.Size = new System.Drawing.Size(59, 19);
             this.SortAlbumBox.TabIndex = 12;
@@ -154,7 +140,7 @@
             // SortGenreBox
             // 
             this.SortGenreBox.AutoSize = true;
-            this.SortGenreBox.Location = new System.Drawing.Point(703, 37);
+            this.SortGenreBox.Location = new System.Drawing.Point(629, 21);
             this.SortGenreBox.Name = "SortGenreBox";
             this.SortGenreBox.Size = new System.Drawing.Size(55, 19);
             this.SortGenreBox.TabIndex = 13;
@@ -164,22 +150,75 @@
             // TextSortBy
             // 
             this.TextSortBy.AutoSize = true;
-            this.TextSortBy.Location = new System.Drawing.Point(398, 38);
+            this.TextSortBy.Location = new System.Drawing.Point(398, 22);
             this.TextSortBy.Name = "TextSortBy";
             this.TextSortBy.Size = new System.Drawing.Size(46, 15);
             this.TextSortBy.TabIndex = 14;
             this.TextSortBy.Text = "Sort by:";
+            // 
+            // listViewPlaylist
+            // 
+            this.listViewPlaylist.FullRowSelect = true;
+            this.listViewPlaylist.GridLines = true;
+            this.listViewPlaylist.HideSelection = false;
+            this.listViewPlaylist.Location = new System.Drawing.Point(393, 41);
+            this.listViewPlaylist.Name = "listViewPlaylist";
+            this.listViewPlaylist.Size = new System.Drawing.Size(371, 273);
+            this.listViewPlaylist.TabIndex = 15;
+            this.listViewPlaylist.UseCompatibleStateImageBehavior = false;
+            this.listViewPlaylist.View = System.Windows.Forms.View.Details;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(393, 332);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(182, 24);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "PLI Settings";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // PLIHistoryButton
+            // 
+            this.PLIHistoryButton.Location = new System.Drawing.Point(581, 332);
+            this.PLIHistoryButton.Name = "PLIHistoryButton";
+            this.PLIHistoryButton.Size = new System.Drawing.Size(183, 24);
+            this.PLIHistoryButton.TabIndex = 16;
+            this.PLIHistoryButton.Text = "History";
+            this.PLIHistoryButton.UseVisualStyleBackColor = true;
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(12, 320);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(752, 45);
+            this.axWindowsMediaPlayer1.TabIndex = 9;
+            this.axWindowsMediaPlayer1.Visible = false;
+            // 
+            // SortLengthBox
+            // 
+            this.SortLengthBox.AutoSize = true;
+            this.SortLengthBox.Location = new System.Drawing.Point(705, 22);
+            this.SortLengthBox.Name = "SortLengthBox";
+            this.SortLengthBox.Size = new System.Drawing.Size(59, 19);
+            this.SortLengthBox.TabIndex = 18;
+            this.SortLengthBox.Text = "Length";
+            this.SortLengthBox.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 421);
+            this.Controls.Add(this.SortLengthBox);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.PLIHistoryButton);
+            this.Controls.Add(this.listViewPlaylist);
             this.Controls.Add(this.TextSortBy);
             this.Controls.Add(this.SortGenreBox);
             this.Controls.Add(this.SortAlbumBox);
             this.Controls.Add(this.SortArtistBox);
-            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.axWindowsMediaPlayer1);
             this.Controls.Add(this.PauseButton);
             this.Controls.Add(this.trackBar1);
@@ -203,16 +242,19 @@
         private System.Windows.Forms.Button PlayButton;
         private System.Windows.Forms.Button NextButton;
         private System.Windows.Forms.Button PrevButton;
+        private System.Windows.Forms.Button PauseButton;
         private System.Windows.Forms.Label SongName;
         private System.Windows.Forms.Label Artist;
         private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.Button PauseButton;
-        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.CheckBox SortArtistBox;
         private System.Windows.Forms.CheckBox SortAlbumBox;
         private System.Windows.Forms.CheckBox SortGenreBox;
         private System.Windows.Forms.Label TextSortBy;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
+        private System.Windows.Forms.ListView listViewPlaylist;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button PLIHistoryButton;
+        private System.Windows.Forms.CheckBox SortLengthBox;
     }
 }
 

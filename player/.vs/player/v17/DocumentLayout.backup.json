@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "D:\\userfile\\Documents\\Code\\MusicPlayer\\player\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|D:\\userfile\\Documents\\Code\\MusicPlayer\\player\\player\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|d:\\userfile\\documents\\code\\musicplayer\\player\\player\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|solutionrelative:player\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|d:\\userfile\\documents\\code\\musicplayer\\player\\player\\models\\music.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|D:\\userfile\\Documents\\Code\\MusicPlayer\\player\\player\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|solutionrelative:player\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|D:\\userfile\\Documents\\Code\\MusicPlayer\\player\\player\\models\\music.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|solutionrelative:player\\models\\music.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|d:\\userfile\\documents\\code\\musicplayer\\player\\player\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|D:\\userfile\\Documents\\Code\\MusicPlayer\\player\\player\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|solutionrelative:player\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|d:\\userfile\\documents\\code\\musicplayer\\player\\player\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|solutionrelative:player\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|d:\\userfile\\documents\\code\\musicplayer\\player\\player\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|solutionrelative:player\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,11 +30,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "D:\\userfile\\Documents\\Code\\MusicPlayer\\player\\player\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "player\\Form1.Designer.cs",
+              "ToolTip": "D:\\userfile\\Documents\\Code\\MusicPlayer\\player\\player\\Form1.Designer.cs",
+              "RelativeToolTip": "player\\Form1.Designer.cs",
+              "ViewState": "AgIAAHYAAAAAAAAAAADwv38AAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-09T12:30:41.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Music.cs",
               "DocumentMoniker": "D:\\userfile\\Documents\\Code\\MusicPlayer\\player\\player\\Models\\Music.cs",
               "RelativeDocumentMoniker": "player\\Models\\Music.cs",
@@ -43,7 +60,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\userfile\\Documents\\Code\\MusicPlayer\\player\\player\\Program.cs",
               "RelativeDocumentMoniker": "player\\Program.cs",
@@ -60,21 +77,21 @@
               "Title": "Form1.cs",
               "DocumentMoniker": "D:\\userfile\\Documents\\Code\\MusicPlayer\\player\\player\\Form1.cs",
               "RelativeDocumentMoniker": "player\\Form1.cs",
-              "ToolTip": "D:\\userfile\\Documents\\Code\\MusicPlayer\\player\\player\\Form1.cs",
-              "RelativeToolTip": "player\\Form1.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAUwBsAAAAAAAAAAAAAAA==",
+              "ToolTip": "D:\\userfile\\Documents\\Code\\MusicPlayer\\player\\player\\Form1.cs*",
+              "RelativeToolTip": "player\\Form1.cs*",
+              "ViewState": "AgIAAA4AAAAAAAAAAADwvx4AAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-02T02:39:50.04Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Form1.cs [\u8BBE\u8BA1]",
               "DocumentMoniker": "D:\\userfile\\Documents\\Code\\MusicPlayer\\player\\player\\Form1.cs",
               "RelativeDocumentMoniker": "player\\Form1.cs",
-              "ToolTip": "D:\\userfile\\Documents\\Code\\MusicPlayer\\player\\player\\Form1.cs [\u8BBE\u8BA1]",
-              "RelativeToolTip": "player\\Form1.cs [\u8BBE\u8BA1]",
+              "ToolTip": "D:\\userfile\\Documents\\Code\\MusicPlayer\\player\\player\\Form1.cs [\u8BBE\u8BA1]*",
+              "RelativeToolTip": "player\\Form1.cs [\u8BBE\u8BA1]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-02T02:49:40.653Z",
               "EditorCaption": " [\u8BBE\u8BA1]"

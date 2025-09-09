@@ -16,6 +16,19 @@ namespace player
         public Form1()
         {
             InitializeComponent();
+            SetupPlaylistColumns();
+        }
+        private void SetupPlaylistColumns()
+        {
+            // 清空现有列
+            listViewPlaylist.Columns.Clear();
+
+            // 添加列
+            listViewPlaylist.Columns.Add("Title", 75);
+            listViewPlaylist.Columns.Add("Artist", 75);
+            listViewPlaylist.Columns.Add("Album", 75);
+            listViewPlaylist.Columns.Add("Genre", 75);
+            listViewPlaylist.Columns.Add("Length", 75);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -23,29 +36,31 @@ namespace player
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void PlayButton_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
+        private void PauseButton_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void PrevButton_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void NextButton_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void SortArtistBox_CheckedChanged(object sender, EventArgs e)
         {
 
         }
+
+
     }
 }

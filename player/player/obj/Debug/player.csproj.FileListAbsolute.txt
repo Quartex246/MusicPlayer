@@ -1,0 +1,16 @@
+D:\userfile\Documents\Code\MusicPlayer\player\player\bin\Debug\player.exe.config
+D:\userfile\Documents\Code\MusicPlayer\player\player\bin\Debug\player.exe
+D:\userfile\Documents\Code\MusicPlayer\player\player\bin\Debug\player.pdb
+D:\userfile\Documents\Code\MusicPlayer\player\player\bin\Debug\Interop.WMPLib.dll
+D:\userfile\Documents\Code\MusicPlayer\player\player\bin\Debug\AxInterop.WMPLib.dll
+D:\userfile\Documents\Code\MusicPlayer\player\player\obj\Debug\player.csproj.AssemblyReference.cache
+D:\userfile\Documents\Code\MusicPlayer\player\player\obj\Debug\Interop.WMPLib.dll
+D:\userfile\Documents\Code\MusicPlayer\player\player\obj\Debug\AxInterop.WMPLib.dll
+D:\userfile\Documents\Code\MusicPlayer\player\player\obj\Debug\player.csproj.ResolveComReference.cache
+D:\userfile\Documents\Code\MusicPlayer\player\player\obj\Debug\player.Form1.resources
+D:\userfile\Documents\Code\MusicPlayer\player\player\obj\Debug\player.Properties.Resources.resources
+D:\userfile\Documents\Code\MusicPlayer\player\player\obj\Debug\player.csproj.GenerateResource.cache
+D:\userfile\Documents\Code\MusicPlayer\player\player\obj\Debug\player.csproj.CoreCompileInputs.cache
+D:\userfile\Documents\Code\MusicPlayer\player\player\obj\Debug\player.exe
+D:\userfile\Documents\Code\MusicPlayer\player\player\obj\Debug\player.pdb
+D:\userfile\Documents\Code\MusicPlayer\player\player\obj\Debug\player.exe.config
