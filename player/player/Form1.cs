@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using player.Models;
 
 namespace player
 {
     public partial class Form1 : Form
     {
+        private Music currentMusic;   
+        private bool isPlaying = false; // Music playing status
+
         public Form1()
         {
             InitializeComponent();
@@ -36,22 +38,66 @@ namespace player
 
         }
 
-        private void PlayButton_Click(object sender, EventArgs e)
+        private void PlayMusic(Music music)
         {
+            currentMusic = music;
+
+            // 加载并播放音乐
+            axWindowsMediaPlayer1.URL = music.FilePath;
+            axWindowsMediaPlayer1.Ctlcontrols.play();
+
+            isPlaying = true;
+            UpdatePlayButtonText();
+
 
         }
 
-        private void PauseButton_Click(object sender, EventArgs e)
+        private void PlayButton_Click(object sender, EventArgs e)
         {
+            if (isPlaying)
+            {
+                axWindowsMediaPlayer1.Ctlcontrols.pause();
+                isPlaying = false;
+            }
+            else
+            {
+                axWindowsMediaPlayer1.Ctlcontrols.play();
+                isPlaying = true;
+            }
+            /* If the music is playing, do pause *
+             * If not, do play. */
 
+            UpdatePlayButtonText();
+        }
+        private void UpdatePlayButtonText()
+        {
+            PlayButton.Text = isPlaying ? "Pause" : "Play";
+            /* Originally I use a "if-else" method to change the text. 
+             * This looks so much better */
+        }
+
+        private void UpdateNowPlayingInfo(Music music)
+        {
+            SongName.Text = music.Title;
+            Artist.Text = music.Artist;
         }
 
         private void PrevButton_Click(object sender, EventArgs e)
         {
-
+            PlayNextSong();
         }
 
         private void NextButton_Click(object sender, EventArgs e)
+        {
+            PlayPrevSong();
+        }
+
+        private void PlayNextSong()
+        {
+
+        }
+
+        private void PlayPrevSong()
         {
 
         }
@@ -60,7 +106,6 @@ namespace player
         {
 
         }
-
 
     }
 }

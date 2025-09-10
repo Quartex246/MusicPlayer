@@ -35,7 +35,6 @@
             this.SongName = new System.Windows.Forms.Label();
             this.Artist = new System.Windows.Forms.Label();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.PauseButton = new System.Windows.Forms.Button();
             this.SortArtistBox = new System.Windows.Forms.CheckBox();
             this.SortAlbumBox = new System.Windows.Forms.CheckBox();
             this.SortGenreBox = new System.Windows.Forms.CheckBox();
@@ -51,7 +50,7 @@
             // 
             // PlayButton
             // 
-            this.PlayButton.Location = new System.Drawing.Point(310, 375);
+            this.PlayButton.Location = new System.Drawing.Point(355, 375);
             this.PlayButton.Name = "PlayButton";
             this.PlayButton.Size = new System.Drawing.Size(75, 34);
             this.PlayButton.TabIndex = 1;
@@ -61,7 +60,7 @@
             // 
             // NextButton
             // 
-            this.NextButton.Location = new System.Drawing.Point(472, 375);
+            this.NextButton.Location = new System.Drawing.Point(436, 375);
             this.NextButton.Name = "NextButton";
             this.NextButton.Size = new System.Drawing.Size(75, 34);
             this.NextButton.TabIndex = 2;
@@ -71,7 +70,7 @@
             // 
             // PrevButton
             // 
-            this.PrevButton.Location = new System.Drawing.Point(229, 375);
+            this.PrevButton.Location = new System.Drawing.Point(274, 375);
             this.PrevButton.Name = "PrevButton";
             this.PrevButton.Size = new System.Drawing.Size(75, 34);
             this.PrevButton.TabIndex = 3;
@@ -82,20 +81,20 @@
             // SongName
             // 
             this.SongName.AutoSize = true;
-            this.SongName.Font = new System.Drawing.Font("MiSans Medium", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SongName.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SongName.Location = new System.Drawing.Point(7, 134);
             this.SongName.Name = "SongName";
-            this.SongName.Size = new System.Drawing.Size(274, 64);
+            this.SongName.Size = new System.Drawing.Size(266, 55);
             this.SongName.TabIndex = 4;
             this.SongName.Text = "SongName";
             // 
             // Artist
             // 
             this.Artist.AutoSize = true;
-            this.Artist.Font = new System.Drawing.Font("MiSans", 18F);
+            this.Artist.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.Artist.Location = new System.Drawing.Point(12, 102);
             this.Artist.Name = "Artist";
-            this.Artist.Size = new System.Drawing.Size(74, 32);
+            this.Artist.Size = new System.Drawing.Size(66, 29);
             this.Artist.TabIndex = 5;
             this.Artist.Text = "Artist";
             // 
@@ -105,16 +104,6 @@
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(104, 45);
             this.trackBar1.TabIndex = 7;
-            // 
-            // PauseButton
-            // 
-            this.PauseButton.Location = new System.Drawing.Point(391, 375);
-            this.PauseButton.Name = "PauseButton";
-            this.PauseButton.Size = new System.Drawing.Size(75, 34);
-            this.PauseButton.TabIndex = 8;
-            this.PauseButton.Text = "Pause";
-            this.PauseButton.UseVisualStyleBackColor = true;
-            this.PauseButton.Click += new System.EventHandler(this.PauseButton_Click);
             // 
             // SortArtistBox
             // 
@@ -189,10 +178,10 @@
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(12, 320);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(724, 375);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(752, 45);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(40, 45);
             this.axWindowsMediaPlayer1.TabIndex = 9;
             this.axWindowsMediaPlayer1.Visible = false;
             // 
@@ -220,7 +209,6 @@
             this.Controls.Add(this.SortAlbumBox);
             this.Controls.Add(this.SortArtistBox);
             this.Controls.Add(this.axWindowsMediaPlayer1);
-            this.Controls.Add(this.PauseButton);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.Artist);
             this.Controls.Add(this.SongName);
@@ -242,7 +230,6 @@
         private System.Windows.Forms.Button PlayButton;
         private System.Windows.Forms.Button NextButton;
         private System.Windows.Forms.Button PrevButton;
-        private System.Windows.Forms.Button PauseButton;
         private System.Windows.Forms.Label SongName;
         private System.Windows.Forms.Label Artist;
         private System.Windows.Forms.TrackBar trackBar1;
