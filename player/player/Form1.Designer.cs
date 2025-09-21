@@ -40,10 +40,13 @@
             this.SortGenreBox = new System.Windows.Forms.CheckBox();
             this.TextSortBy = new System.Windows.Forms.Label();
             this.listViewPlaylist = new System.Windows.Forms.ListView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.PLICreateButton = new System.Windows.Forms.Button();
             this.PLIHistoryButton = new System.Windows.Forms.Button();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.SortLengthBox = new System.Windows.Forms.CheckBox();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.PLIEditButton = new System.Windows.Forms.Button();
+            this.PLISelectButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
@@ -84,7 +87,7 @@
             this.SongName.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SongName.Location = new System.Drawing.Point(7, 134);
             this.SongName.Name = "SongName";
-            this.SongName.Size = new System.Drawing.Size(266, 55);
+            this.SongName.Size = new System.Drawing.Size(328, 69);
             this.SongName.TabIndex = 4;
             this.SongName.Text = "SongName";
             // 
@@ -94,7 +97,7 @@
             this.Artist.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.Artist.Location = new System.Drawing.Point(12, 102);
             this.Artist.Name = "Artist";
-            this.Artist.Size = new System.Drawing.Size(66, 29);
+            this.Artist.Size = new System.Drawing.Size(84, 36);
             this.Artist.TabIndex = 5;
             this.Artist.Text = "Artist";
             // 
@@ -102,7 +105,7 @@
             // 
             this.trackBar1.Location = new System.Drawing.Point(12, 269);
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(104, 45);
+            this.trackBar1.Size = new System.Drawing.Size(104, 56);
             this.trackBar1.TabIndex = 7;
             // 
             // SortArtistBox
@@ -110,7 +113,7 @@
             this.SortArtistBox.AutoSize = true;
             this.SortArtistBox.Location = new System.Drawing.Point(472, 21);
             this.SortArtistBox.Name = "SortArtistBox";
-            this.SortArtistBox.Size = new System.Drawing.Size(55, 19);
+            this.SortArtistBox.Size = new System.Drawing.Size(63, 21);
             this.SortArtistBox.TabIndex = 11;
             this.SortArtistBox.Text = "Artist";
             this.SortArtistBox.UseVisualStyleBackColor = true;
@@ -121,7 +124,7 @@
             this.SortAlbumBox.AutoSize = true;
             this.SortAlbumBox.Location = new System.Drawing.Point(547, 21);
             this.SortAlbumBox.Name = "SortAlbumBox";
-            this.SortAlbumBox.Size = new System.Drawing.Size(59, 19);
+            this.SortAlbumBox.Size = new System.Drawing.Size(69, 21);
             this.SortAlbumBox.TabIndex = 12;
             this.SortAlbumBox.Text = "Album";
             this.SortAlbumBox.UseVisualStyleBackColor = true;
@@ -131,7 +134,7 @@
             this.SortGenreBox.AutoSize = true;
             this.SortGenreBox.Location = new System.Drawing.Point(629, 21);
             this.SortGenreBox.Name = "SortGenreBox";
-            this.SortGenreBox.Size = new System.Drawing.Size(55, 19);
+            this.SortGenreBox.Size = new System.Drawing.Size(66, 21);
             this.SortGenreBox.TabIndex = 13;
             this.SortGenreBox.Text = "Genre";
             this.SortGenreBox.UseVisualStyleBackColor = true;
@@ -141,7 +144,7 @@
             this.TextSortBy.AutoSize = true;
             this.TextSortBy.Location = new System.Drawing.Point(398, 22);
             this.TextSortBy.Name = "TextSortBy";
-            this.TextSortBy.Size = new System.Drawing.Size(46, 15);
+            this.TextSortBy.Size = new System.Drawing.Size(53, 17);
             this.TextSortBy.TabIndex = 14;
             this.TextSortBy.Text = "Sort by:";
             // 
@@ -152,28 +155,38 @@
             this.listViewPlaylist.HideSelection = false;
             this.listViewPlaylist.Location = new System.Drawing.Point(393, 41);
             this.listViewPlaylist.Name = "listViewPlaylist";
-            this.listViewPlaylist.Size = new System.Drawing.Size(371, 273);
+            this.listViewPlaylist.Size = new System.Drawing.Size(371, 257);
             this.listViewPlaylist.TabIndex = 15;
             this.listViewPlaylist.UseCompatibleStateImageBehavior = false;
             this.listViewPlaylist.View = System.Windows.Forms.View.Details;
             // 
-            // button1
+            // PLICreateButton
             // 
-            this.button1.Location = new System.Drawing.Point(393, 332);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 24);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "PLI Settings";
-            this.button1.UseVisualStyleBackColor = true;
+            this.PLICreateButton.Location = new System.Drawing.Point(393, 332);
+            this.PLICreateButton.Name = "PLICreateButton";
+            this.PLICreateButton.Size = new System.Drawing.Size(82, 24);
+            this.PLICreateButton.TabIndex = 17;
+            this.PLICreateButton.Text = "Create";
+            this.PLICreateButton.UseVisualStyleBackColor = true;
             // 
             // PLIHistoryButton
             // 
-            this.PLIHistoryButton.Location = new System.Drawing.Point(581, 332);
+            this.PLIHistoryButton.Location = new System.Drawing.Point(681, 332);
             this.PLIHistoryButton.Name = "PLIHistoryButton";
-            this.PLIHistoryButton.Size = new System.Drawing.Size(183, 24);
+            this.PLIHistoryButton.Size = new System.Drawing.Size(83, 24);
             this.PLIHistoryButton.TabIndex = 16;
             this.PLIHistoryButton.Text = "History";
             this.PLIHistoryButton.UseVisualStyleBackColor = true;
+            // 
+            // SortLengthBox
+            // 
+            this.SortLengthBox.AutoSize = true;
+            this.SortLengthBox.Location = new System.Drawing.Point(705, 22);
+            this.SortLengthBox.Name = "SortLengthBox";
+            this.SortLengthBox.Size = new System.Drawing.Size(71, 21);
+            this.SortLengthBox.TabIndex = 18;
+            this.SortLengthBox.Text = "Length";
+            this.SortLengthBox.UseVisualStyleBackColor = true;
             // 
             // axWindowsMediaPlayer1
             // 
@@ -185,23 +198,44 @@
             this.axWindowsMediaPlayer1.TabIndex = 9;
             this.axWindowsMediaPlayer1.Visible = false;
             // 
-            // SortLengthBox
+            // PLIEditButton
             // 
-            this.SortLengthBox.AutoSize = true;
-            this.SortLengthBox.Location = new System.Drawing.Point(705, 22);
-            this.SortLengthBox.Name = "SortLengthBox";
-            this.SortLengthBox.Size = new System.Drawing.Size(59, 19);
-            this.SortLengthBox.TabIndex = 18;
-            this.SortLengthBox.Text = "Length";
-            this.SortLengthBox.UseVisualStyleBackColor = true;
+            this.PLIEditButton.Location = new System.Drawing.Point(481, 332);
+            this.PLIEditButton.Name = "PLIEditButton";
+            this.PLIEditButton.Size = new System.Drawing.Size(82, 24);
+            this.PLIEditButton.TabIndex = 19;
+            this.PLIEditButton.Text = "Edit";
+            this.PLIEditButton.UseVisualStyleBackColor = true;
+            // 
+            // PLISelectButton
+            // 
+            this.PLISelectButton.Location = new System.Drawing.Point(569, 332);
+            this.PLISelectButton.Name = "PLISelectButton";
+            this.PLISelectButton.Size = new System.Drawing.Size(82, 24);
+            this.PLISelectButton.TabIndex = 20;
+            this.PLISelectButton.Text = "Select";
+            this.PLISelectButton.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(390, 309);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 16);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Playlist Settings";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 421);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.PLISelectButton);
+            this.Controls.Add(this.PLIEditButton);
             this.Controls.Add(this.SortLengthBox);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.PLICreateButton);
             this.Controls.Add(this.PLIHistoryButton);
             this.Controls.Add(this.listViewPlaylist);
             this.Controls.Add(this.TextSortBy);
@@ -239,9 +273,12 @@
         private System.Windows.Forms.Label TextSortBy;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
         private System.Windows.Forms.ListView listViewPlaylist;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button PLICreateButton;
         private System.Windows.Forms.Button PLIHistoryButton;
         private System.Windows.Forms.CheckBox SortLengthBox;
+        private System.Windows.Forms.Button PLIEditButton;
+        private System.Windows.Forms.Button PLISelectButton;
+        private System.Windows.Forms.Label label1;
     }
 }
 
