@@ -43,10 +43,11 @@
             this.PLICreateButton = new System.Windows.Forms.Button();
             this.PLIHistoryButton = new System.Windows.Forms.Button();
             this.SortLengthBox = new System.Windows.Forms.CheckBox();
-            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             this.PLIEditButton = new System.Windows.Forms.Button();
             this.PLISelectButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.PLIDeleteButton = new System.Windows.Forms.Button();
+            this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
@@ -164,10 +165,11 @@
             // 
             this.PLICreateButton.Location = new System.Drawing.Point(393, 332);
             this.PLICreateButton.Name = "PLICreateButton";
-            this.PLICreateButton.Size = new System.Drawing.Size(82, 24);
+            this.PLICreateButton.Size = new System.Drawing.Size(61, 24);
             this.PLICreateButton.TabIndex = 17;
             this.PLICreateButton.Text = "Create";
             this.PLICreateButton.UseVisualStyleBackColor = true;
+            this.PLICreateButton.Click += new System.EventHandler(this.PLICreateButton_Click);
             // 
             // PLIHistoryButton
             // 
@@ -188,30 +190,20 @@
             this.SortLengthBox.Text = "Length";
             this.SortLengthBox.UseVisualStyleBackColor = true;
             // 
-            // axWindowsMediaPlayer1
-            // 
-            this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(724, 375);
-            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
-            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(40, 45);
-            this.axWindowsMediaPlayer1.TabIndex = 9;
-            this.axWindowsMediaPlayer1.Visible = false;
-            // 
             // PLIEditButton
             // 
-            this.PLIEditButton.Location = new System.Drawing.Point(481, 332);
+            this.PLIEditButton.Location = new System.Drawing.Point(460, 332);
             this.PLIEditButton.Name = "PLIEditButton";
-            this.PLIEditButton.Size = new System.Drawing.Size(82, 24);
+            this.PLIEditButton.Size = new System.Drawing.Size(61, 24);
             this.PLIEditButton.TabIndex = 19;
             this.PLIEditButton.Text = "Edit";
             this.PLIEditButton.UseVisualStyleBackColor = true;
             // 
             // PLISelectButton
             // 
-            this.PLISelectButton.Location = new System.Drawing.Point(569, 332);
+            this.PLISelectButton.Location = new System.Drawing.Point(527, 332);
             this.PLISelectButton.Name = "PLISelectButton";
-            this.PLISelectButton.Size = new System.Drawing.Size(82, 24);
+            this.PLISelectButton.Size = new System.Drawing.Size(61, 24);
             this.PLISelectButton.TabIndex = 20;
             this.PLISelectButton.Text = "Select";
             this.PLISelectButton.UseVisualStyleBackColor = true;
@@ -226,11 +218,31 @@
             this.label1.TabIndex = 21;
             this.label1.Text = "Playlist Settings";
             // 
+            // PLIDeleteButton
+            // 
+            this.PLIDeleteButton.Location = new System.Drawing.Point(594, 332);
+            this.PLIDeleteButton.Name = "PLIDeleteButton";
+            this.PLIDeleteButton.Size = new System.Drawing.Size(61, 24);
+            this.PLIDeleteButton.TabIndex = 22;
+            this.PLIDeleteButton.Text = "Delete";
+            this.PLIDeleteButton.UseVisualStyleBackColor = true;
+            // 
+            // axWindowsMediaPlayer1
+            // 
+            this.axWindowsMediaPlayer1.Enabled = true;
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(724, 375);
+            this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
+            this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(40, 45);
+            this.axWindowsMediaPlayer1.TabIndex = 9;
+            this.axWindowsMediaPlayer1.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(776, 421);
+            this.Controls.Add(this.PLIDeleteButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PLISelectButton);
             this.Controls.Add(this.PLIEditButton);
@@ -251,7 +263,7 @@
             this.Controls.Add(this.PlayButton);
             this.Font = new System.Drawing.Font("Times New Roman", 9F);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Music Player";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
@@ -279,6 +291,7 @@
         private System.Windows.Forms.Button PLIEditButton;
         private System.Windows.Forms.Button PLISelectButton;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button PLIDeleteButton;
     }
 }
 

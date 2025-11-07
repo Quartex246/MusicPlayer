@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json; // With JSON extension to make playlist
+using player.Models; // With "Music" & "Playlist" function included
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using player.Models; // With "Music" & "Playlist" function included
+using Microsoft.VisualBasic;
 
 namespace player
 {
@@ -21,7 +23,7 @@ namespace player
             InitializeComponent();
             SetupPlaylistColumns();
         }
-        private void SetupPlaylistColumns()
+        private void SetupPlaylistColumns() //initialize playlist section
         {
             // 清空现有列
             listViewPlaylist.Columns.Clear();
@@ -95,12 +97,12 @@ namespace player
 
         private void PlayNextSong()
         {
-
+            axWindowsMediaPlayer1.Ctlcontrols.next();
         }
 
         private void PlayPrevSong()
         {
-
+            axWindowsMediaPlayer1.Ctlcontrols.previous();
         }
 
         private void SortArtistBox_CheckedChanged(object sender, EventArgs e)
@@ -108,5 +110,12 @@ namespace player
 
         }
 
+        private void PLICreateButton_Click(object sender, EventArgs e)
+        {
+
+            // Open the file manager and select music
+            // Using List function
+
+        }
     }
 }
