@@ -1,0 +1,33 @@
+{
+  "Name": "CurrentPlaylist",
+  "Songs": [
+    {
+      "Title": "GOODWORLD(Extended)",
+      "Artist": "EBIMAYO",
+      "Album": "Groundbreaking 2018 [II. CANDY]",
+      "Genre": "GOODHARD",
+      "Duration": "05:53",
+      "FilePath": "C:\\Users\\Akemi\\Music\\3.mp3",
+      "Lyrics": null
+    },
+    {
+      "Title": "Kindness",
+      "Artist": "7mai",
+      "Album": "GroundbreakinG BOFXVII [Disc1 Diamond]",
+      "Genre": "Chiptune",
+      "Duration": "03:57",
+      "FilePath": "C:\\Users\\Akemi\\Music\\11.mp3",
+      "Lyrics": null
+    },
+    {
+      "Title": "GAMEBOY",
+      "Artist": "Silentroom",
+      "Album": "Groundbreaking 2017 [Disc A]",
+      "Genre": "ONCE UPON A TIME",
+      "Duration": "03:15",
+      "FilePath": "C:\\Users\\Akemi\\Downloads\\20.mp3",
+      "Lyrics": null
+    }
+  ],
+  "CreatedDate": "2025-11-22T20:31:50.2671955+08:00"
+}

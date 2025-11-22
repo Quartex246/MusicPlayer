@@ -198,6 +198,7 @@
             this.PLIEditButton.TabIndex = 19;
             this.PLIEditButton.Text = "Edit";
             this.PLIEditButton.UseVisualStyleBackColor = true;
+            this.PLIEditButton.Click += new System.EventHandler(this.PLIEditButton_Click);
             // 
             // PLISelectButton
             // 
@@ -207,6 +208,7 @@
             this.PLISelectButton.TabIndex = 20;
             this.PLISelectButton.Text = "Select";
             this.PLISelectButton.UseVisualStyleBackColor = true;
+            this.PLISelectButton.Click += new System.EventHandler(this.PLISelectButton_Click);
             // 
             // label1
             // 
@@ -230,11 +232,12 @@
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(19, 311);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(-1, 375);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
-            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(330, 45);
+            this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(35, 45);
             this.axWindowsMediaPlayer1.TabIndex = 9;
+            this.axWindowsMediaPlayer1.Visible = false;
             // 
             // Form1
             // 

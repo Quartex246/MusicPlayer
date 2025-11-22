@@ -16,6 +16,7 @@ namespace player
     {
         private Music currentMusic;   
         private bool isPlaying = false; // Music playing status
+        private int currentSongIndex = -1; // Track current song position in playlist
 
         public Form1()
         {
@@ -37,7 +38,10 @@ namespace player
             }
         }
 
-        WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer(); // Adding Windows Media Player (? why is it written like that)
+        WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer(); // Adding Windows Media Player
+
+        // It means we can use WMP functions in this program, and we name it "wplayer"
+        // Using "new" means we create a new instance of it
 
         private void SetupPlaylistColumns() //initialize playlist section
         {
@@ -58,6 +62,9 @@ namespace player
         }
 
         private void PlayMusic(Music music)
+
+        // The function to play music
+
         {
             if (music == null || string.IsNullOrEmpty(music.FilePath))
             {
@@ -66,6 +73,17 @@ namespace player
             }
 
             currentMusic = music;
+
+            // Find and set the current song index in the playlist
+            for (int i = 0; i < listViewPlaylist.Items.Count; i++)
+            {
+                if (listViewPlaylist.Items[i].Tag == music)
+                {
+                    currentSongIndex = i;
+                    listViewPlaylist.Items[i].Selected = true; // Highlight current song
+                    break;
+                }
+            }
 
             try
             {
@@ -116,22 +134,79 @@ namespace player
 
         private void PrevButton_Click(object sender, EventArgs e)
         {
-            PlayNextSong();
+            PlayPrevSong(); 
+            
         }
 
         private void NextButton_Click(object sender, EventArgs e)
         {
-            PlayPrevSong();
+            PlayNextSong();
         }
 
         private void PlayNextSong()
         {
-            wplayer.controls.next();
+            // If no song is currently playing, start from the first one
+            if (currentSongIndex < 0 || currentSongIndex >= listViewPlaylist.Items.Count)
+            {
+                if (listViewPlaylist.Items.Count > 0)
+                {
+                    currentSongIndex = 0;
+                }
+                else
+                {
+                    MessageBox.Show("Playlist is empty");
+                    return;
+                }
+            }
+            // Move to next song, loop back to start if at the end
+            else
+            {
+                currentSongIndex++;
+                if (currentSongIndex >= listViewPlaylist.Items.Count)
+                {
+                    currentSongIndex = 0; // Loop to beginning
+                }
+            }
+
+            var nextItem = listViewPlaylist.Items[currentSongIndex];
+            var music = nextItem.Tag as Music;
+            if (music != null)
+            {
+                PlayMusic(music);
+            }
         }
 
         private void PlayPrevSong()
         {
-            wplayer.controls.previous();
+            // If no song is currently playing, start from the last one
+            if (currentSongIndex < 0 || currentSongIndex >= listViewPlaylist.Items.Count)
+            {
+                if (listViewPlaylist.Items.Count > 0)
+                {
+                    currentSongIndex = listViewPlaylist.Items.Count - 1;
+                }
+                else
+                {
+                    MessageBox.Show("Playlist is empty");
+                    return;
+                }
+            }
+            // Move to previous song, loop to end if at the start
+            else
+            {
+                currentSongIndex--;
+                if (currentSongIndex < 0)
+                {
+                    currentSongIndex = listViewPlaylist.Items.Count - 1; // Loop to end
+                }
+            }
+
+            var prevItem = listViewPlaylist.Items[currentSongIndex];
+            var music = prevItem.Tag as Music;
+            if (music != null)
+            {
+                PlayMusic(music);
+            }
         }
 
         private void SortArtistBox_CheckedChanged(object sender, EventArgs e)
@@ -158,9 +233,11 @@ namespace player
                     }
                 }
             }
+
+            SavePlaylist();
         }
 
-            private void AddMusicToPlaylist(string filePath)
+        private void AddMusicToPlaylist(string filePath)
         {
             try
             {
@@ -203,10 +280,129 @@ namespace player
             }
         }
 
+        // Note to self: The function above is to add music to playlist
+        // It is not only needed when creating playlist, but also when editing playlist
+
         private string FormatTime(double duration)
         {
             TimeSpan time = TimeSpan.FromSeconds(duration);
             return time.ToString(@"mm\:ss");
+        }
+
+        private void PLIEditButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void SavePlaylist()
+        {
+            try
+            {
+                // Create a playlist from current ListView items
+                var playlist = new Playlist("CurrentPlaylist");
+                
+                foreach (ListViewItem item in listViewPlaylist.Items)
+                {
+                    var music = item.Tag as Music;
+                    if (music != null)
+                    {
+                        playlist.AddSong(music);
+                    }
+                }
+
+                // Serialize to JSON and save to file
+
+
+
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+                // 设置对话框属性
+                saveFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+                saveFileDialog.FilterIndex = 1; // 默认选择 JSON 格式
+                saveFileDialog.FileName = "Playlist.json"; // 默认文件名
+                saveFileDialog.Title = "Save Playlist"; // 对话框标题
+                saveFileDialog.DefaultExt = "json"; // 默认扩展名
+
+                // 显示对话框并检查用户是否点击了"保存"
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // 序列化对象
+                    string json = JsonConvert.SerializeObject(playlist, Formatting.Indented);
+                    
+                    // 获取用户选择的路径
+                    string playlistPath = saveFileDialog.FileName;
+                    
+                    // 保存文件
+                    System.IO.File.WriteAllText(playlistPath, json);
+                    MessageBox.Show("Playlist saved successfully!");
+                }
+
+                // Note to self: No matter if the playlist is empty or not, it is still pop out a window to save the playlist
+                // Multiple playlists should be supported.
+
+                // Bug: The song will be added whether if the music is already in the playlist or not.
+                // Bug: Add song function should be related to the edit button, not the create button.
+                // Detect if the playlist is loaded or not. If so, create a new playlist when clicking create button.
+                
+            
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to save playlist: {ex.Message}");
+            }
+        }
+
+            private void LoadPlaylist()
+            {
+                try
+                {
+                    OpenFileDialog openFileDialog = new OpenFileDialog();
+                    openFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+                    openFileDialog.FilterIndex = 1;
+                    openFileDialog.FileName = "Playlist.json";
+                    openFileDialog.Title = "Load Playlist";
+                    openFileDialog.DefaultExt = "json";
+
+                    // 如果用户没有选择文件或点击取消，直接返回
+                    if (openFileDialog.ShowDialog() != DialogResult.OK)
+                        return;
+
+                    string playlistPath = openFileDialog.FileName;
+                
+                    if (!System.IO.File.Exists(playlistPath))
+                    {
+                        MessageBox.Show("No saved playlist found.");
+                        return;
+                    }
+
+                    string json = System.IO.File.ReadAllText(playlistPath);
+                    var playlist = JsonConvert.DeserializeObject<Playlist>(json);
+
+                    if (playlist != null)
+                    {
+                        listViewPlaylist.Items.Clear();
+                        foreach (var music in playlist.Songs)
+                        {
+                            var item = new ListViewItem(music.Title);
+                            item.SubItems.Add(music.Artist);
+                            item.SubItems.Add(music.Album);
+                            item.SubItems.Add(music.Genre);
+                            item.SubItems.Add(music.Duration);
+                            item.Tag = music;
+                            listViewPlaylist.Items.Add(item);
+                        }
+                        MessageBox.Show("Playlist loaded successfully!");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Failed to load playlist: {ex.Message}");
+                }
+            }
+        private void PLISelectButton_Click(object sender, EventArgs e)
+        {
+            LoadPlaylist();
         }
     }
 }
