@@ -70,7 +70,17 @@ But instead of giving useless advices, this time it gave me a more specific appr
 
 
 
+## 251122
 
+I suspended the last log. My bad, I should finish it. 
+
+I will make it short for this time.
+
+Playback function has finished. Currently working on playlist function. Now I can save and load playlist where ever I want, but with some issues. 
+
+I need to spend some time on how they did it. The Previous and Next music function.
+
+Turns out I have to call a window to do things. `SaveFileDialog` and `OpenFileDialog`. By opening the dialog with some attributes to edit. I wonder if there are other dialogs.
 
 
 

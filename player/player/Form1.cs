@@ -17,6 +17,7 @@ namespace player
         private Music currentMusic;   
         private bool isPlaying = false; // Music playing status
         private int currentSongIndex = -1; // Track current song position in playlist
+        private string currentPlaylistPath = null;
 
         public Form1()
         {
@@ -128,8 +129,15 @@ namespace player
 
         private void UpdateNowPlayingInfo(Music music)
         {
-            SongName.Text = music.Title;
-            Artist.Text = music.Artist;
+            if (music == null)
+            {
+                SongName.Text = "No song";
+                Artist.Text = "";
+                return;
+            }
+
+            SongName.Text = music.Title ?? "Unknown Title";
+            Artist.Text = music.Artist ?? "Unknown Artist";
         }
 
         private void PrevButton_Click(object sender, EventArgs e)
@@ -216,6 +224,7 @@ namespace player
 
         private void PLICreateButton_Click(object sender, EventArgs e)
         {
+            clearPlaylist();
 
             // Open the file manager and select music
             // Using List function
@@ -291,7 +300,11 @@ namespace player
 
         private void PLIEditButton_Click(object sender, EventArgs e)
         {
-            
+            // Edit playlist function
+            // Open a dialog with current playlist items
+            // Allow adding/removing songs
+            EditPlaylist();
+            // TODO: How to create a dialog with buttons to add/remove songs?
         }
 
         private void SavePlaylist()
@@ -353,22 +366,29 @@ namespace player
             }
         }
 
-            private void LoadPlaylist()
-            {
-                try
-                {
-                    OpenFileDialog openFileDialog = new OpenFileDialog();
-                    openFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
-                    openFileDialog.FilterIndex = 1;
-                    openFileDialog.FileName = "Playlist.json";
-                    openFileDialog.Title = "Load Playlist";
-                    openFileDialog.DefaultExt = "json";
 
-                    // 如果用户没有选择文件或点击取消，直接返回
+        private void PLISelectButton_Click(object sender, EventArgs e)
+        {
+            LoadPlaylist();
+        }
+
+        private void LoadPlaylist()
+        {
+           try
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "JSON files (*.json)|*.json|All files (*.*)|*.*";
+                openFileDialog.FilterIndex = 1;
+                openFileDialog.FileName = "Playlist.json";
+                openFileDialog.Title = "Load Playlist";
+                openFileDialog.DefaultExt = "json";
+
+                // 如果用户没有选择文件或点击取消，直接返回
                     if (openFileDialog.ShowDialog() != DialogResult.OK)
                         return;
 
                     string playlistPath = openFileDialog.FileName;
+                    currentPlaylistPath = playlistPath;
                 
                     if (!System.IO.File.Exists(playlistPath))
                     {
@@ -392,17 +412,47 @@ namespace player
                             item.Tag = music;
                             listViewPlaylist.Items.Add(item);
                         }
-                        MessageBox.Show("Playlist loaded successfully!");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Failed to load playlist: {ex.Message}");
+                    MessageBox.Show("Playlist loaded successfully!");
                 }
             }
-        private void PLISelectButton_Click(object sender, EventArgs e)
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to load playlist: {ex.Message}");
+            }
+        }
+
+        private void EditPlaylist()
         {
-            LoadPlaylist();
+            // Open a dialog to edit the playlist
+        }
+        private void PLIDeleteButton_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(currentPlaylistPath))
+            {
+                MessageBox.Show("No playlist file is currently loaded or the playlist hasn't been saved yet.");
+                return;
+            }
+
+            // Delete the playlist
+            if (MessageBox.Show("Are you sure you want to delete the entire playlist?", 
+            "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                System.IO.File.Delete(currentPlaylistPath);
+                clearPlaylist();
+                MessageBox.Show("Playlist deleted successfully!");
+            }
+            // It end up with a "clear playlist" function
+            // could do.
+        }
+
+        public void clearPlaylist()
+        {
+            listViewPlaylist.Items.Clear();
+            currentSongIndex = -1;
+            isPlaying = false;
+            wplayer.controls.stop();
+            UpdatePlayButtonText();
+            UpdateNowPlayingInfo(null);
         }
     }
 }

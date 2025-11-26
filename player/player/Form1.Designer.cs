@@ -85,28 +85,27 @@
             // SongName
             // 
             this.SongName.AutoSize = true;
-            this.SongName.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SongName.Location = new System.Drawing.Point(7, 134);
+            this.SongName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.SongName.Location = new System.Drawing.Point(19, 267);
             this.SongName.Name = "SongName";
-            this.SongName.Size = new System.Drawing.Size(328, 69);
+            this.SongName.Size = new System.Drawing.Size(119, 31);
             this.SongName.TabIndex = 4;
-            this.SongName.Text = "SongName";
+            this.SongName.Text = "No Song";
             // 
             // Artist
             // 
             this.Artist.AutoSize = true;
-            this.Artist.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.Artist.Location = new System.Drawing.Point(12, 102);
+            this.Artist.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.Artist.Location = new System.Drawing.Point(22, 249);
             this.Artist.Name = "Artist";
-            this.Artist.Size = new System.Drawing.Size(84, 36);
+            this.Artist.Size = new System.Drawing.Size(0, 18);
             this.Artist.TabIndex = 5;
-            this.Artist.Text = "Artist";
             // 
             // trackBar1
             // 
-            this.trackBar1.Location = new System.Drawing.Point(12, 269);
+            this.trackBar1.Location = new System.Drawing.Point(12, 364);
             this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(104, 56);
+            this.trackBar1.Size = new System.Drawing.Size(137, 56);
             this.trackBar1.TabIndex = 7;
             // 
             // SortArtistBox
@@ -228,11 +227,12 @@
             this.PLIDeleteButton.TabIndex = 22;
             this.PLIDeleteButton.Text = "Delete";
             this.PLIDeleteButton.UseVisualStyleBackColor = true;
+            this.PLIDeleteButton.Click += new System.EventHandler(this.PLIDeleteButton_Click);
             // 
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(-1, 375);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(741, 375);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(35, 45);
