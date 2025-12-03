@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 
 namespace player.Models
 {
-    internal class Playlist
+    public class Playlist
     {
         public string Name { get; set; } //The name of the playlist
         public List<Music> Songs { get; set; } //Created a list called "Music"

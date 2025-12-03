@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Akemi\\Documents\\GitHub\\MusicPlayer\\player\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|c:\\users\\akemi\\documents\\github\\musicplayer\\player\\player\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|C:\\Users\\Akemi\\Documents\\GitHub\\MusicPlayer\\player\\player\\historyform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|solutionrelative:player\\historyform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|C:\\Users\\Akemi\\Documents\\GitHub\\MusicPlayer\\player\\player\\historyform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|solutionrelative:player\\historyform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|c:\\users\\akemi\\documents\\github\\musicplayer\\player\\player\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|solutionrelative:player\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|C:\\Users\\Akemi\\Documents\\GitHub\\MusicPlayer\\player\\player\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|solutionrelative:player\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|C:\\Users\\Akemi\\Documents\\GitHub\\MusicPlayer\\player\\player\\models\\playlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|solutionrelative:player\\models\\playlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|C:\\Users\\Akemi\\Documents\\GitHub\\MusicPlayer\\player\\player\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|solutionrelative:player\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8AE96148-D438-4E4D-A9F8-1E802450794B}|player\\player.csproj|C:\\Users\\Akemi\\Documents\\GitHub\\MusicPlayer\\player\\player\\models\\music.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -34,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 82,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,7 +50,32 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HistoryForm.cs",
+              "DocumentMoniker": "C:\\Users\\Akemi\\Documents\\GitHub\\MusicPlayer\\player\\player\\HistoryForm.cs",
+              "RelativeDocumentMoniker": "player\\HistoryForm.cs",
+              "ToolTip": "C:\\Users\\Akemi\\Documents\\GitHub\\MusicPlayer\\player\\player\\HistoryForm.cs",
+              "RelativeToolTip": "player\\HistoryForm.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAiwCIAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T12:53:04.718Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "HistoryForm.cs [\u8BBE\u8BA1]",
+              "DocumentMoniker": "C:\\Users\\Akemi\\Documents\\GitHub\\MusicPlayer\\player\\player\\HistoryForm.cs",
+              "RelativeDocumentMoniker": "player\\HistoryForm.cs",
+              "ToolTip": "C:\\Users\\Akemi\\Documents\\GitHub\\MusicPlayer\\player\\player\\HistoryForm.cs [\u8BBE\u8BA1]",
+              "RelativeToolTip": "player\\HistoryForm.cs [\u8BBE\u8BA1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-01T12:28:39.69Z",
+              "EditorCaption": " [\u8BBE\u8BA1]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Form1.cs [\u8BBE\u8BA1]",
               "DocumentMoniker": "C:\\Users\\Akemi\\Documents\\GitHub\\MusicPlayer\\player\\player\\Form1.cs",
               "RelativeDocumentMoniker": "player\\Form1.cs",
@@ -60,14 +93,14 @@
               "RelativeDocumentMoniker": "player\\Form1.cs",
               "ToolTip": "C:\\Users\\Akemi\\Documents\\GitHub\\MusicPlayer\\player\\player\\Form1.cs",
               "RelativeToolTip": "player\\Form1.cs",
-              "ViewState": "AgIAADUBAAAAAAAAAIA2wIgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADgCAAAAAAAAAAAIwHoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-09-02T02:39:50.04Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Playlist.cs",
               "DocumentMoniker": "C:\\Users\\Akemi\\Documents\\GitHub\\MusicPlayer\\player\\player\\Models\\Playlist.cs",
               "RelativeDocumentMoniker": "player\\Models\\Playlist.cs",
@@ -75,12 +108,11 @@
               "RelativeToolTip": "player\\Models\\Playlist.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-15T01:14:31.727Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-15T01:14:31.727Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Akemi\\Documents\\GitHub\\MusicPlayer\\player\\player\\Program.cs",
               "RelativeDocumentMoniker": "player\\Program.cs",
@@ -92,7 +124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Music.cs",
               "DocumentMoniker": "C:\\Users\\Akemi\\Documents\\GitHub\\MusicPlayer\\player\\player\\Models\\Music.cs",
               "RelativeDocumentMoniker": "player\\Models\\Music.cs",
@@ -104,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Akemi\\Documents\\GitHub\\MusicPlayer\\player\\player\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "player\\Form1.Designer.cs",

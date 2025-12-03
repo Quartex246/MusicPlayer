@@ -178,6 +178,7 @@
             this.PLIHistoryButton.TabIndex = 16;
             this.PLIHistoryButton.Text = "History";
             this.PLIHistoryButton.UseVisualStyleBackColor = true;
+            this.PLIHistoryButton.Click += new System.EventHandler(this.PLIHistoryButton_Click);
             // 
             // SortLengthBox
             // 

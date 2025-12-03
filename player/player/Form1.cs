@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace player
 {
@@ -19,11 +20,17 @@ namespace player
         private int currentSongIndex = -1; // Track current song position in playlist
         private string currentPlaylistPath = null;
 
+        // Related with history playlist
+        private List<PlaylistHistoryItem> playlistHistory = new List<PlaylistHistoryItem>();
+        private const int MAX_PLAYLIST_HISTORY_SIZE = 20;  // Max history size
+
         public Form1()
         {
             InitializeComponent();
             SetupPlaylistColumns();
-            listViewPlaylist.DoubleClick += ListViewPlaylist_DoubleClick; // Double click to play function (? why is it written like that)
+            listViewPlaylist.DoubleClick += ListViewPlaylist_DoubleClick; // Double click to play function
+
+            LoadPlaylistHistory();
         }
 
         private void ListViewPlaylist_DoubleClick(object sender, EventArgs e)
@@ -56,7 +63,19 @@ namespace player
             listViewPlaylist.Columns.Add("Genre", 75);
             listViewPlaylist.Columns.Add("Length", 75);
         }
-
+        public class PlaylistHistoryItem
+        {
+            public string Name { get; set; }
+            public string Path { get; set; }
+            public DateTime LastAccessed { get; set; }
+            public int SongCount { get; set; }
+            
+            // 用于ListView显示的友好名称
+            public override string ToString()
+            {
+                return $"{Name} ({SongCount} songs) - {LastAccessed:yyyy-MM-dd}";
+            }
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -88,7 +107,6 @@ namespace player
 
             try
             {
-
                 wplayer.URL = music.FilePath;
                 wplayer.controls.play();
 
@@ -96,10 +114,12 @@ namespace player
                 UpdatePlayButtonText();
                 UpdateNowPlayingInfo(music);
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show($"Cannot play：{ex.Message}");
             }
+
         }
 
         private void PlayButton_Click(object sender, EventArgs e)
@@ -226,6 +246,15 @@ namespace player
         {
             clearPlaylist();
 
+            AddMusicDialog();
+
+            currentPlaylistPath = null;
+            
+            SavePlaylist();
+        }
+
+        private void AddMusicDialog()
+        {
             // Open the file manager and select music
             // Using List function
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
@@ -241,11 +270,12 @@ namespace player
                         AddMusicToPlaylist(filePath);
                     }
                 }
+                else
+                {
+                    MessageBox.Show("No music selected.");
+                }
             }
-
-            SavePlaylist();
         }
-
         private void AddMusicToPlaylist(string filePath)
         {
             try
@@ -300,11 +330,7 @@ namespace player
 
         private void PLIEditButton_Click(object sender, EventArgs e)
         {
-            // Edit playlist function
-            // Open a dialog with current playlist items
-            // Allow adding/removing songs
             EditPlaylist();
-            // TODO: How to create a dialog with buttons to add/remove songs?
         }
 
         private void SavePlaylist()
@@ -412,6 +438,9 @@ namespace player
                             item.Tag = music;
                             listViewPlaylist.Items.Add(item);
                         }
+
+                    AddToPlaylistHistory(playlistPath, playlist);
+
                     MessageBox.Show("Playlist loaded successfully!");
                 }
             }
@@ -421,9 +450,111 @@ namespace player
             }
         }
 
+        private void AddToPlaylistHistory(string playlistPath, Playlist playlist)
+        {
+            try
+            {
+                string playlistName = playlist.Name ?? Path.GetFileNameWithoutExtension(playlistPath);
+                
+                // 检查是否已存在
+                var existing = playlistHistory.FirstOrDefault(p => p.Path.Equals(playlistPath, StringComparison.OrdinalIgnoreCase));
+                if (existing != null)
+                {
+                    // 更新现有记录
+                    existing.LastAccessed = DateTime.Now;
+                    existing.SongCount = playlist.Songs?.Count ?? 0;
+                    // 移动到列表开头（最近使用的）
+                    playlistHistory.Remove(existing);
+                    playlistHistory.Insert(0, existing);
+                }
+                else
+                {
+                    // 添加新记录
+                    var historyItem = new PlaylistHistoryItem
+                    {
+                        Name = playlistName,
+                        Path = playlistPath,
+                        LastAccessed = DateTime.Now,
+                        SongCount = playlist.Songs?.Count ?? 0
+                    };
+                    
+                    playlistHistory.Insert(0, historyItem);
+                    
+                    // 限制历史记录大小
+                    if (playlistHistory.Count > MAX_PLAYLIST_HISTORY_SIZE)
+                    {
+                        playlistHistory.RemoveAt(MAX_PLAYLIST_HISTORY_SIZE);
+                    }
+                }
+                
+                // 保存历史记录到文件
+                SavePlaylistHistory();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error adding to playlist history: {ex.Message}");
+            }
+        }
+        private void SavePlaylistHistory()
+        {
+            try
+            {
+                string historyPath = Path.Combine(Application.StartupPath, "playlist_history.json");
+                string json = JsonConvert.SerializeObject(playlistHistory, Formatting.Indented);
+                File.WriteAllText(historyPath, json);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error saving playlist history: {ex.Message}");
+            }
+        }
+
+        private void LoadPlaylistHistory()
+        {
+            try
+            {
+                string historyPath = Path.Combine(Application.StartupPath, "playlist_history.json");
+                if (File.Exists(historyPath))
+                {
+                    string json = File.ReadAllText(historyPath);
+                    playlistHistory = JsonConvert.DeserializeObject<List<PlaylistHistoryItem>>(json) ?? new List<PlaylistHistoryItem>();
+                    
+                    // 确保不超过最大数量
+                    if (playlistHistory.Count > MAX_PLAYLIST_HISTORY_SIZE)
+                    {
+                        playlistHistory = playlistHistory.Take(MAX_PLAYLIST_HISTORY_SIZE).ToList();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error loading playlist history: {ex.Message}");
+                playlistHistory = new List<PlaylistHistoryItem>();
+            }
+        }
+
+
         private void EditPlaylist()
         {
             // Open a dialog to edit the playlist
+            if(MessageBox.Show("What would you like to do?\nYes: Add Music\nNo: Remove Selected Music",
+            "Edit Playlist", MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+            {
+                AddMusicDialog();
+            }
+            // TODO: Edit function should be disabled when there is no playlist loaded
+
+            else if (MessageBox.Show("Are you sure you want to remove the selected music from the playlist?",
+            "Confirm Removal", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            // Even when the closing the dialog, it will still pop up.
+            {
+                // Remove selected music
+                foreach (ListViewItem selectedItem in listViewPlaylist.SelectedItems)
+                {
+                    listViewPlaylist.Items.Remove(selectedItem);
+                }
+                // It's removing the selected music from the listview instead of the playlist object
+            }
         }
         private void PLIDeleteButton_Click(object sender, EventArgs e)
         {
@@ -441,8 +572,6 @@ namespace player
                 clearPlaylist();
                 MessageBox.Show("Playlist deleted successfully!");
             }
-            // It end up with a "clear playlist" function
-            // could do.
         }
 
         public void clearPlaylist()
@@ -453,6 +582,68 @@ namespace player
             wplayer.controls.stop();
             UpdatePlayButtonText();
             UpdateNowPlayingInfo(null);
+        }
+
+        private void PLIHistoryButton_Click(object sender, EventArgs e)
+        {
+            ShowHistoryPlaylist();
+        }
+
+        private void ShowHistoryPlaylist()
+        {
+            using (var historyForm = new HistoryForm(playlistHistory))
+            {
+                historyForm.PlaylistSelected += (historyItem) =>
+                {
+                    // 加载选中的播放列表
+                    LoadPlaylistFromHistory(historyItem);
+                    historyForm.Close();
+                };
+                
+                historyForm.ShowDialog(this);
+            }
+        }
+
+        private void LoadPlaylistFromHistory(PlaylistHistoryItem historyItem)
+        {
+            if (!File.Exists(historyItem.Path))
+            {
+                MessageBox.Show($"Playlist file not found:\n{historyItem.Path}");
+                return;
+            }
+
+            try
+            {
+                string json = File.ReadAllText(historyItem.Path);
+                var playlist = JsonConvert.DeserializeObject<Playlist>(json);
+
+                if (playlist != null)
+                {
+                    listViewPlaylist.Items.Clear();
+                    foreach (var music in playlist.Songs)
+                    {
+                        var item = new ListViewItem(music.Title);
+                        item.SubItems.Add(music.Artist);
+                        item.SubItems.Add(music.Album);
+                        item.SubItems.Add(music.Genre);
+                        item.SubItems.Add(music.Duration);
+                        item.Tag = music;
+                        listViewPlaylist.Items.Add(item);
+                    }
+                    
+                    currentPlaylistPath = historyItem.Path;
+                    
+                    // 更新访问时间
+                    historyItem.LastAccessed = DateTime.Now;
+                    SavePlaylistHistory();
+                    
+                    MessageBox.Show($"Playlist '{historyItem.Name}' loaded successfully!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to load playlist: {ex.Message}");
+            }
         }
     }
 }

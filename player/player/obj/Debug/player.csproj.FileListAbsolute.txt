@@ -33,3 +33,4 @@ C:\Users\Akemi\Documents\GitHub\MusicPlayer\player\player\obj\Debug\player.pdb
 C:\Users\Akemi\Documents\GitHub\MusicPlayer\player\player\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Akemi\Documents\GitHub\MusicPlayer\player\player\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Akemi\Documents\GitHub\MusicPlayer\player\player\obj\Debug\player.csproj.Up2Date
+C:\Users\Akemi\Documents\GitHub\MusicPlayer\player\player\obj\Debug\player.HistoryForm.resources
