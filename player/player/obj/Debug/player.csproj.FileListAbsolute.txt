@@ -34,3 +34,7 @@ C:\Users\Akemi\Documents\GitHub\MusicPlayer\player\player\bin\Debug\Newtonsoft.J
 C:\Users\Akemi\Documents\GitHub\MusicPlayer\player\player\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Akemi\Documents\GitHub\MusicPlayer\player\player\obj\Debug\player.csproj.Up2Date
 C:\Users\Akemi\Documents\GitHub\MusicPlayer\player\player\obj\Debug\player.HistoryForm.resources
+D:\userfile\Documents\Code\MusicPlayer\player\player\bin\Debug\Newtonsoft.Json.dll
+D:\userfile\Documents\Code\MusicPlayer\player\player\bin\Debug\Newtonsoft.Json.xml
+D:\userfile\Documents\Code\MusicPlayer\player\player\obj\Debug\player.HistoryForm.resources
+D:\userfile\Documents\Code\MusicPlayer\player\player\obj\Debug\player.csproj.Up2Date

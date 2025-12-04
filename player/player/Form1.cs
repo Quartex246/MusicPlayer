@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json; // With JSON extension to make playlist
 using player.Models; // With "Music" & "Playlist" function included
+using player.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+
 
 namespace player
 {
@@ -288,28 +290,8 @@ namespace player
         {
             try
             {
-                // Using Windows Media Player to fetch info
-                var tempPlayer = new WMPLib.WindowsMediaPlayer();
-                var media = tempPlayer.newMedia(filePath);
-
-                // Create Music Object
-                var music = new Music
-                {
-                    FilePath = filePath,
-                    Title = string.IsNullOrEmpty(media.getItemInfo("Title")) ?
-                           System.IO.Path.GetFileNameWithoutExtension(filePath) : media.getItemInfo("Title"),
-
-                    Artist = string.IsNullOrEmpty(media.getItemInfo("Artist")) ?
-                            "Unknown Artist" : media.getItemInfo("Artist"),
-
-                    Album = string.IsNullOrEmpty(media.getItemInfo("Album")) ?
-                           "Unknown Album" : media.getItemInfo("Album"),
-
-                    Genre = string.IsNullOrEmpty(media.getItemInfo("Genre")) ?
-                           "Unknown Genre" : media.getItemInfo("Genre"),
-
-                    Duration = FormatTime(media.duration)
-                };
+                var reader = new MusicInfoReader();
+                var music = reader.GetMusicInfo(filePath);
 
                 // 添加到 ListView
                 var item = new ListViewItem(music.Title);
