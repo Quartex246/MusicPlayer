@@ -24,6 +24,10 @@ namespace player
         private List<PlaylistHistoryItem> playlistHistory = new List<PlaylistHistoryItem>();
         private const int MAX_PLAYLIST_HISTORY_SIZE = 20;  // Max history size
 
+        // 用于保存原始顺序的列表
+        private List<Music> originalPlaylistOrder = new List<Music>();
+        private bool isPlaylistLoaded = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -31,6 +35,10 @@ namespace player
             listViewPlaylist.DoubleClick += ListViewPlaylist_DoubleClick; // Double click to play function
 
             LoadPlaylistHistory();
+
+            SortArtistBox.CheckedChanged += SortCheckBox_CheckedChanged;
+            SortAlbumBox.CheckedChanged += SortCheckBox_CheckedChanged;
+            SortGenreBox.CheckedChanged += SortCheckBox_CheckedChanged;
         }
 
         private void ListViewPlaylist_DoubleClick(object sender, EventArgs e)
@@ -374,16 +382,7 @@ namespace player
                     // 保存文件
                     System.IO.File.WriteAllText(playlistPath, json);
                     MessageBox.Show("Playlist saved successfully!");
-                }
-
-                // Note to self: No matter if the playlist is empty or not, it is still pop out a window to save the playlist
-                // Multiple playlists should be supported.
-
-                // Bug: The song will be added whether if the music is already in the playlist or not.
-                // Bug: Add song function should be related to the edit button, not the create button.
-                // Detect if the playlist is loaded or not. If so, create a new playlist when clicking create button.
-                
-            
+                }            
 
             }
             catch (Exception ex)
@@ -443,6 +442,18 @@ namespace player
 
                     MessageBox.Show("Playlist loaded successfully!");
                 }
+
+                // 设置播放列表已加载标志
+                    isPlaylistLoaded = true;
+                    
+                // 清除任何选中的排序选项
+                SortArtistBox.Checked = false;
+                SortAlbumBox.Checked = false;
+                SortGenreBox.Checked = false;
+                    
+                // 清除保存的原始顺序
+                originalPlaylistOrder.Clear();
+
             }
             catch (Exception ex)
             {
@@ -582,6 +593,17 @@ namespace player
             wplayer.controls.stop();
             UpdatePlayButtonText();
             UpdateNowPlayingInfo(null);
+
+            // 重置播放列表加载标志
+            isPlaylistLoaded = false;
+            
+            // 清除排序选项
+            SortArtistBox.Checked = false;
+            SortAlbumBox.Checked = false;
+            SortGenreBox.Checked = false;
+            
+            // 清除保存的原始顺序
+            originalPlaylistOrder.Clear();
         }
 
         private void PLIHistoryButton_Click(object sender, EventArgs e)
@@ -645,5 +667,143 @@ namespace player
                 MessageBox.Show($"Failed to load playlist: {ex.Message}");
             }
         }
+
+                private void SortCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox clickedCheckBox = sender as CheckBox;
+            
+            // 如果当前CheckBox被勾选，确保其他CheckBox被取消勾选
+            if (clickedCheckBox != null && clickedCheckBox.Checked)
+            {
+                if (clickedCheckBox == SortArtistBox)
+                {
+                    SortAlbumBox.Checked = false;
+                    SortGenreBox.Checked = false;
+                    SortByArtist();
+                }
+                else if (clickedCheckBox == SortAlbumBox)
+                {
+                    SortArtistBox.Checked = false;
+                    SortGenreBox.Checked = false;
+                    SortByAlbum();
+                }
+                else if (clickedCheckBox == SortGenreBox)
+                {
+                    SortArtistBox.Checked = false;
+                    SortAlbumBox.Checked = false;
+                    SortByGenre();
+                }
+            }
+            // 如果所有CheckBox都被取消勾选，恢复原始顺序
+            else if (!SortArtistBox.Checked && !SortAlbumBox.Checked && !SortGenreBox.Checked)
+            {
+                RestoreOriginalOrder();
+            }
+        }
+        
+        private void SortByArtist()
+        {
+            if (!isPlaylistLoaded || listViewPlaylist.Items.Count == 0) return;
+            
+            // 保存当前顺序（如果尚未保存）
+            if (originalPlaylistOrder.Count == 0)
+            {
+                SaveOriginalOrder();
+            }
+            
+            // 获取所有音乐并按艺术家排序
+            var sortedMusic = GetMusicListFromListView()
+                .OrderBy(m => m.Artist)
+                .ThenBy(m => m.Title)
+                .ToList();
+            
+            // 更新ListView
+            UpdateListViewWithMusic(sortedMusic);
+        }
+        private void SortByAlbum()
+        {
+            if (!isPlaylistLoaded || listViewPlaylist.Items.Count == 0) return;
+            
+            if (originalPlaylistOrder.Count == 0)
+            {
+                SaveOriginalOrder();
+            }
+            
+            var sortedMusic = GetMusicListFromListView()
+                .OrderBy(m => m.Album)
+                .ThenBy(m => m.Title)
+                .ToList();
+            
+            UpdateListViewWithMusic(sortedMusic);
+        }
+
+        private void SortByGenre()
+        {
+            if (!isPlaylistLoaded || listViewPlaylist.Items.Count == 0) return;
+            
+            if (originalPlaylistOrder.Count == 0)
+            {
+                SaveOriginalOrder();
+            }
+            
+            var sortedMusic = GetMusicListFromListView()
+                .OrderBy(m => m.Genre)
+                .ThenBy(m => m.Title)
+                .ToList();
+            
+            UpdateListViewWithMusic(sortedMusic);
+        }
+
+        private void RestoreOriginalOrder()
+        {
+            if (!isPlaylistLoaded || originalPlaylistOrder.Count == 0) return;
+            
+            // 恢复原始顺序
+            UpdateListViewWithMusic(originalPlaylistOrder);
+            
+            // 清除保存的原始顺序（以便下次可以重新保存）
+            originalPlaylistOrder.Clear();
+        }
+
+        private void SaveOriginalOrder()
+        {
+            originalPlaylistOrder.Clear();
+            originalPlaylistOrder.AddRange(GetMusicListFromListView());
+        }
+
+        private List<Music> GetMusicListFromListView()
+        {
+            List<Music> musicList = new List<Music>();
+            
+            foreach (ListViewItem item in listViewPlaylist.Items)
+            {
+                var music = item.Tag as Music;
+                if (music != null)
+                {
+                    musicList.Add(music);
+                }
+            }
+            
+            return musicList;
+        }
+
+        private void UpdateListViewWithMusic(List<Music> musicList)
+        {
+            // 清除当前ListView
+            listViewPlaylist.Items.Clear();
+            
+            // 添加排序后的音乐
+            foreach (var music in musicList)
+            {
+                var item = new ListViewItem(music.Title);
+                item.SubItems.Add(music.Artist);
+                item.SubItems.Add(music.Album);
+                item.SubItems.Add(music.Genre);
+                item.SubItems.Add(music.Duration);
+                item.Tag = music;
+                listViewPlaylist.Items.Add(item);
+            }
+        }
+
     }
 }

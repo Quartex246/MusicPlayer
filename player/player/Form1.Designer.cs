@@ -34,7 +34,6 @@
             this.PrevButton = new System.Windows.Forms.Button();
             this.SongName = new System.Windows.Forms.Label();
             this.Artist = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.SortArtistBox = new System.Windows.Forms.CheckBox();
             this.SortAlbumBox = new System.Windows.Forms.CheckBox();
             this.SortGenreBox = new System.Windows.Forms.CheckBox();
@@ -42,13 +41,11 @@
             this.listViewPlaylist = new System.Windows.Forms.ListView();
             this.PLICreateButton = new System.Windows.Forms.Button();
             this.PLIHistoryButton = new System.Windows.Forms.Button();
-            this.SortLengthBox = new System.Windows.Forms.CheckBox();
             this.PLIEditButton = new System.Windows.Forms.Button();
             this.PLISelectButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.PLIDeleteButton = new System.Windows.Forms.Button();
             this.axWindowsMediaPlayer1 = new AxWMPLib.AxWindowsMediaPlayer();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,13 +97,6 @@
             this.Artist.Name = "Artist";
             this.Artist.Size = new System.Drawing.Size(0, 18);
             this.Artist.TabIndex = 5;
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(12, 364);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(137, 56);
-            this.trackBar1.TabIndex = 7;
             // 
             // SortArtistBox
             // 
@@ -180,16 +170,6 @@
             this.PLIHistoryButton.UseVisualStyleBackColor = true;
             this.PLIHistoryButton.Click += new System.EventHandler(this.PLIHistoryButton_Click);
             // 
-            // SortLengthBox
-            // 
-            this.SortLengthBox.AutoSize = true;
-            this.SortLengthBox.Location = new System.Drawing.Point(705, 22);
-            this.SortLengthBox.Name = "SortLengthBox";
-            this.SortLengthBox.Size = new System.Drawing.Size(71, 21);
-            this.SortLengthBox.TabIndex = 18;
-            this.SortLengthBox.Text = "Length";
-            this.SortLengthBox.UseVisualStyleBackColor = true;
-            // 
             // PLIEditButton
             // 
             this.PLIEditButton.Location = new System.Drawing.Point(460, 332);
@@ -249,7 +229,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PLISelectButton);
             this.Controls.Add(this.PLIEditButton);
-            this.Controls.Add(this.SortLengthBox);
             this.Controls.Add(this.PLICreateButton);
             this.Controls.Add(this.PLIHistoryButton);
             this.Controls.Add(this.listViewPlaylist);
@@ -258,7 +237,6 @@
             this.Controls.Add(this.SortAlbumBox);
             this.Controls.Add(this.SortArtistBox);
             this.Controls.Add(this.axWindowsMediaPlayer1);
-            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.Artist);
             this.Controls.Add(this.SongName);
             this.Controls.Add(this.PrevButton);
@@ -268,7 +246,6 @@
             this.Name = "Form1";
             this.Text = "Music Player";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -281,7 +258,6 @@
         private System.Windows.Forms.Button PrevButton;
         private System.Windows.Forms.Label SongName;
         private System.Windows.Forms.Label Artist;
-        private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.CheckBox SortArtistBox;
         private System.Windows.Forms.CheckBox SortAlbumBox;
         private System.Windows.Forms.CheckBox SortGenreBox;
@@ -290,7 +266,6 @@
         private System.Windows.Forms.ListView listViewPlaylist;
         private System.Windows.Forms.Button PLICreateButton;
         private System.Windows.Forms.Button PLIHistoryButton;
-        private System.Windows.Forms.CheckBox SortLengthBox;
         private System.Windows.Forms.Button PLIEditButton;
         private System.Windows.Forms.Button PLISelectButton;
         private System.Windows.Forms.Label label1;
