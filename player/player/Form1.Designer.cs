@@ -2,14 +2,14 @@
 {
     partial class Form1
     {
-        /// <summary>
+    
         /// 必需的设计器变量。
-        /// </summary>
+    
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+    
         /// 清理所有正在使用的资源。
-        /// </summary>
+    
         /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
         protected override void Dispose(bool disposing)
         {
@@ -22,10 +22,10 @@
 
         #region Windows 窗体设计器生成的代码
 
-        /// <summary>
+    
         /// 设计器支持所需的方法 - 不要修改
         /// 使用代码编辑器修改此方法的内容。
-        /// </summary>
+    
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
@@ -55,7 +55,7 @@
             this.PlayButton.Name = "PlayButton";
             this.PlayButton.Size = new System.Drawing.Size(75, 34);
             this.PlayButton.TabIndex = 1;
-            this.PlayButton.Text = "Play";
+            this.PlayButton.Text = "播放";
             this.PlayButton.UseVisualStyleBackColor = true;
             this.PlayButton.Click += new System.EventHandler(this.PlayButton_Click);
             // 
@@ -65,7 +65,7 @@
             this.NextButton.Name = "NextButton";
             this.NextButton.Size = new System.Drawing.Size(75, 34);
             this.NextButton.TabIndex = 2;
-            this.NextButton.Text = "Next";
+            this.NextButton.Text = "下一首";
             this.NextButton.UseVisualStyleBackColor = true;
             this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
             // 
@@ -75,7 +75,7 @@
             this.PrevButton.Name = "PrevButton";
             this.PrevButton.Size = new System.Drawing.Size(75, 34);
             this.PrevButton.TabIndex = 3;
-            this.PrevButton.Text = "Prev";
+            this.PrevButton.Text = "上一首";
             this.PrevButton.UseVisualStyleBackColor = true;
             this.PrevButton.Click += new System.EventHandler(this.PrevButton_Click);
             // 
@@ -85,9 +85,9 @@
             this.SongName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.SongName.Location = new System.Drawing.Point(19, 267);
             this.SongName.Name = "SongName";
-            this.SongName.Size = new System.Drawing.Size(119, 31);
+            this.SongName.Size = new System.Drawing.Size(95, 31);
             this.SongName.TabIndex = 4;
-            this.SongName.Text = "No Song";
+            this.SongName.Text = "无歌曲";
             // 
             // Artist
             // 
@@ -103,9 +103,9 @@
             this.SortArtistBox.AutoSize = true;
             this.SortArtistBox.Location = new System.Drawing.Point(472, 21);
             this.SortArtistBox.Name = "SortArtistBox";
-            this.SortArtistBox.Size = new System.Drawing.Size(63, 21);
+            this.SortArtistBox.Size = new System.Drawing.Size(62, 21);
             this.SortArtistBox.TabIndex = 11;
-            this.SortArtistBox.Text = "Artist";
+            this.SortArtistBox.Text = "歌手";
             this.SortArtistBox.UseVisualStyleBackColor = true;
             this.SortArtistBox.CheckedChanged += new System.EventHandler(this.SortArtistBox_CheckedChanged);
             // 
@@ -114,9 +114,9 @@
             this.SortAlbumBox.AutoSize = true;
             this.SortAlbumBox.Location = new System.Drawing.Point(547, 21);
             this.SortAlbumBox.Name = "SortAlbumBox";
-            this.SortAlbumBox.Size = new System.Drawing.Size(69, 21);
+            this.SortAlbumBox.Size = new System.Drawing.Size(62, 21);
             this.SortAlbumBox.TabIndex = 12;
-            this.SortAlbumBox.Text = "Album";
+            this.SortAlbumBox.Text = "专辑";
             this.SortAlbumBox.UseVisualStyleBackColor = true;
             // 
             // SortGenreBox
@@ -124,9 +124,9 @@
             this.SortGenreBox.AutoSize = true;
             this.SortGenreBox.Location = new System.Drawing.Point(629, 21);
             this.SortGenreBox.Name = "SortGenreBox";
-            this.SortGenreBox.Size = new System.Drawing.Size(66, 21);
+            this.SortGenreBox.Size = new System.Drawing.Size(62, 21);
             this.SortGenreBox.TabIndex = 13;
-            this.SortGenreBox.Text = "Genre";
+            this.SortGenreBox.Text = "风格";
             this.SortGenreBox.UseVisualStyleBackColor = true;
             // 
             // TextSortBy
@@ -134,9 +134,9 @@
             this.TextSortBy.AutoSize = true;
             this.TextSortBy.Location = new System.Drawing.Point(398, 22);
             this.TextSortBy.Name = "TextSortBy";
-            this.TextSortBy.Size = new System.Drawing.Size(53, 17);
+            this.TextSortBy.Size = new System.Drawing.Size(40, 17);
             this.TextSortBy.TabIndex = 14;
-            this.TextSortBy.Text = "Sort by:";
+            this.TextSortBy.Text = "分类";
             // 
             // listViewPlaylist
             // 
@@ -156,7 +156,7 @@
             this.PLICreateButton.Name = "PLICreateButton";
             this.PLICreateButton.Size = new System.Drawing.Size(61, 24);
             this.PLICreateButton.TabIndex = 17;
-            this.PLICreateButton.Text = "Create";
+            this.PLICreateButton.Text = "创建";
             this.PLICreateButton.UseVisualStyleBackColor = true;
             this.PLICreateButton.Click += new System.EventHandler(this.PLICreateButton_Click);
             // 
@@ -166,7 +166,7 @@
             this.PLIHistoryButton.Name = "PLIHistoryButton";
             this.PLIHistoryButton.Size = new System.Drawing.Size(83, 24);
             this.PLIHistoryButton.TabIndex = 16;
-            this.PLIHistoryButton.Text = "History";
+            this.PLIHistoryButton.Text = "历史记录";
             this.PLIHistoryButton.UseVisualStyleBackColor = true;
             this.PLIHistoryButton.Click += new System.EventHandler(this.PLIHistoryButton_Click);
             // 
@@ -176,7 +176,7 @@
             this.PLIEditButton.Name = "PLIEditButton";
             this.PLIEditButton.Size = new System.Drawing.Size(61, 24);
             this.PLIEditButton.TabIndex = 19;
-            this.PLIEditButton.Text = "Edit";
+            this.PLIEditButton.Text = "编辑";
             this.PLIEditButton.UseVisualStyleBackColor = true;
             this.PLIEditButton.Click += new System.EventHandler(this.PLIEditButton_Click);
             // 
@@ -186,7 +186,7 @@
             this.PLISelectButton.Name = "PLISelectButton";
             this.PLISelectButton.Size = new System.Drawing.Size(61, 24);
             this.PLISelectButton.TabIndex = 20;
-            this.PLISelectButton.Text = "Select";
+            this.PLISelectButton.Text = "选择";
             this.PLISelectButton.UseVisualStyleBackColor = true;
             this.PLISelectButton.Click += new System.EventHandler(this.PLISelectButton_Click);
             // 
@@ -206,7 +206,7 @@
             this.PLIDeleteButton.Name = "PLIDeleteButton";
             this.PLIDeleteButton.Size = new System.Drawing.Size(61, 24);
             this.PLIDeleteButton.TabIndex = 22;
-            this.PLIDeleteButton.Text = "Delete";
+            this.PLIDeleteButton.Text = "删除";
             this.PLIDeleteButton.UseVisualStyleBackColor = true;
             this.PLIDeleteButton.Click += new System.EventHandler(this.PLIDeleteButton_Click);
             // 

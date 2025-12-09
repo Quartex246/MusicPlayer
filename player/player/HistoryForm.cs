@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using player.Models;
@@ -7,9 +7,10 @@ namespace player
 {
     public partial class HistoryForm : Form
     {
-        private List<Form1.PlaylistHistoryItem> historyList;
-        public event Action<Form1.PlaylistHistoryItem> PlaylistSelected;
-        public HistoryForm(List <Form1.PlaylistHistoryItem> history)
+        private List<PlaylistHistoryItem> historyList;
+        public event Action<PlaylistHistoryItem> PlaylistSelected;
+        
+        public HistoryForm(List<PlaylistHistoryItem> history)
         {
             InitializeComponent();
             historyList = history;
@@ -46,7 +47,7 @@ namespace player
             if (listViewHistory.SelectedItems.Count > 0)
             {
                 var selectedItem = listViewHistory.SelectedItems[0];
-                var historyItem = selectedItem.Tag as Form1.PlaylistHistoryItem;
+                var historyItem = selectedItem.Tag as PlaylistHistoryItem;
                 if (historyItem != null)
                 {
                     PlaylistSelected?.Invoke(historyItem);
@@ -57,7 +58,7 @@ namespace player
         private void btnClearHistory_Click_1(object sender, EventArgs e)
         {
             if (MessageBox.Show("Clear all history?", "Confirm",
-            MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 listViewHistory.Items.Clear();
                 historyList.Clear();
@@ -65,4 +66,3 @@ namespace player
         }
     }
 }
-
